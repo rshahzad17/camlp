@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christ Apostolic Ministries - Lahore, Pakistan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #1a3c6c;
+            --secondary-color: #c9a43f;
+            --accent-color: #8b4513;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --text-color: #333;
+            --text-light: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 15px auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 25px;
+        }
+        
+        .nav-menu a {
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* About Preview */
+        .about-preview {
+            background: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Services */
+        .services {
+            background: var(--light-color);
+        }
+        
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #ddd;
+        }
+        
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        /* Page Content Styles */
+        .page-section {
+            padding: 80px 0;
+            background: white;
+            min-height: 80vh;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background: white;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-church" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                <div class="logo-text">Christ Apostolic Ministries</div>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#mission">Our Mission</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#events">Events & Media</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Welcome to Christ Apostolic Ministries</h1>
+            <p>A place of worship, fellowship, and spiritual growth in Lahore, Pakistan</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="page-section">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Christ Apostolic Ministries was established in 1995 by Pastor John Smith and his wife Sarah with a vision to create a Christ-centered community in Lahore that would serve both spiritual and practical needs of the people.</p>
+                    <p>Over the years, our church has grown from a small home fellowship to a congregation of over 500 members. Despite our growth, we have maintained our commitment to personal relationships and community building.</p>
+                    <p>We are part of the Apostolic Council of Pakistan and adhere to the doctrines of the apostolic Christian faith. Our leadership team consists of dedicated pastors, elders, and deacons who serve the congregation with love and dedication.</p>
+                    <h3>Our Beliefs</h3>
+                    <p>We believe in the Trinity: Father, Son, and Holy Spirit. We believe in the death, burial, and resurrection of Jesus Christ and that salvation comes only through Him. We believe in the power of prayer and the gifts of the Holy Spirit for today's church.</p>
+                </div>
+                <div class="about-image">
+                    <div style="height: 400px; background-color: #1a3c6c; display: flex; align-items: center; justify-content: center; color: white;">
+                        <i class="fas fa-history" style="font-size: 5rem;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Mission Section -->
+    <section id="mission" class="page-section" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Our Mission</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div style="height: 400px; background-color: #c9a43f; display: flex; align-items: center; justify-content: center; color: white;">
+                        <i class="fas fa-bullseye" style="font-size: 5rem;"></i>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Vision Statement</h3>
+                    <p>To be a beacon of God's love and truth in Lahore, transforming lives through the power of the Gospel and building a community of believers who impact their world for Christ.</p>
+                    
+                    <h3>Mission Statement</h3>
+                    <p>Our mission is threefold:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                        <li>To worship God in spirit and truth</li>
+                        <li>To make disciples of all nations, beginning in Lahore</li>
+                        <li>To serve our community with compassion and practical help</li>
+                    </ul>
+                    
+                    <h3>Core Values</h3>
+                    <p>We are committed to:</p>
+                    <ul style="margin-left: 20px;">
+                        <li>Biblical authority in all matters of faith and practice</li>
+                        <li>Prayer as the foundation of all ministry</li>
+                        <li>Excellence in everything we do for God</li>
+                        <li>Relevance to our culture while maintaining biblical integrity</li>
+                        <li>Unity in diversity within the body of Christ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="page-section">
+        <div class="container">
+            <h2 class="section-title">Church Service Hours</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="background-color: var(--light-color); padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+                    <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 20px;">Regular Weekly Schedule</h3>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
+                            <div style="font-weight: bold;">Sunday Worship Service</div>
+                            <div>10:00 AM - 12:00 PM</div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
+                            <div style="font-weight: bold;">Sunday School (All Ages)</div>
+                            <div>9:00 AM - 9:45 AM</div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
+                            <div style="font-weight: bold;">Youth Fellowship</div>
+                            <div>Sundays at 4:00 PM</div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
+                            <div style="font-weight: bold;">Bible Study (Adults)</div>
+                            <div>Wednesdays at 6:00 PM</div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
+                            <div style="font-weight: bold;">Prayer Meeting</div>
+                            <div>Fridays at 5:00 PM</div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
+                            <div style="font-weight: bold;">Women's Fellowship</div>
+                            <div>First Saturday of each month at 10:00 AM</div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
+                            <div style="font-weight: bold;">Men's Breakfast</div>
+                            <div>Second Saturday of each month at 8:00 AM</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="background-color: var(--light-color); padding: 30px; border-radius: 10px;">
+                    <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 20px;">Special Services</h3>
+                    <p style="text-align: center; margin-bottom: 20px;">Join us for these special services throughout the year</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div style="background: white; padding: 20px; border-radius: 5px;">
+                            <h4 style="color: var(--primary-color);">Easter Services</h4>
+                            <p>Good Friday: 5:00 PM</p>
+                            <p>Easter Sunrise Service: 6:00 AM</p>
+                            <p>Easter Celebration: 10:00 AM</p>
+                        </div>
+                        
+                        <div style="background: white; padding: 20px; border-radius: 5px;">
+                            <h4 style="color: var(--primary-color);">Christmas Services</h4>
+                            <p>Christmas Eve Candlelight: 7:00 PM</p>
+                            <p>Christmas Day Service: 10:00 AM</p>
+                        </div>
+                        
+                        <div style="background: white; padding: 20px; border-radius: 5px;">
+                            <h4 style="color: var(--primary-color);">Thanksgiving Service</h4>
+                            <p>Thanksgiving Day: 10:00 AM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Events & Media Section -->
+    <section id="events" class="page-section" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2 class="section-title">Events & Media</h2>
+            
+            <div style="margin-bottom: 40px;">
+                <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 30px;">Upcoming Events</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                    <div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
+                        <div style="height: 150px; background-color: var(--primary-color); display: flex; align-items: center; justify-content: center; color: white;">
+                            <i class="fas fa-calendar-alt" style="font-size: 3rem;"></i>
+                        </div>
+                        <div style="padding: 20px;">
+                            <h4>Annual Church Picnic</h4>
+                            <p><strong>Date:</strong> October 15, 2023</p>
+                            <p><strong>Time:</strong> 11:00 AM - 3:00 PM</p>
+                            <p><strong>Location:</strong> Jallo Park</p>
+                            <p>Join us for a day of food, games, and fellowship. All are welcome!</p>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
+                        <div style="height: 150px; background-color: var(--secondary-color); display: flex; align-items: center; justify-content: center; color: white;">
+                            <i class="fas fa-music" style="font-size: 3rem;"></i>
+                        </div>
+                        <div style="padding: 20px;">
+                            <h4>Worship Night</h4>
+                            <p><strong>Date:</strong> November 5, 2023</p>
+                            <p><strong>Time:</strong> 6:00 PM - 8:00 PM</p>
+                            <p><strong>Location:</strong> Church Sanctuary</p>
+                            <p>A special evening of worship and prayer. Come expecting to encounter God!</p>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
+                        <div style="height: 150px; background-color: var(--accent-color); display: flex; align-items: center; justify-content: center; color: white;">
+                            <i class="fas fa-hands-helping" style="font-size: 3rem;"></i>
+                        </div>
+                        <div style="padding: 20px;">
+                            <h4>Community Outreach</h4>
+                            <p><strong>Date:</strong> December 10, 2023</p>
+                            <p><strong>Time:</strong> 9:00 AM - 1:00 PM</p>
+                            <p><strong>Location:</strong> Inner City Lahore</p>
+                            <p>We'll be distributing food packages and supplies to families in need. Volunteers needed!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 30px;">Sermon Media</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                    <div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
+                        <div style="height: 150px; background-color: #6c757d; display: flex; align-items: center; justify-content: center; color: white;">
+                            <i class="fas fa-video" style="font-size: 3rem;"></i>
+                        </div>
+                        <div style="padding: 20px;">
+                            <h4>The Power of Faith</h4>
+                            <p><strong>Date:</strong> September 10, 2023</p>
+                            <p><strong>Speaker:</strong> Pastor John Smith</p>
+                            <p>In this message, Pastor John explores how faith can move mountains in our lives.</p>
+                            <a href="#" class="btn" style="margin-top: 15px;">Watch Now</a>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
+                        <div style="height: 150px; background-color: #6c757d; display: flex; align-items: center; justify-content: center; color: white;">
+                            <i class="fas fa-headphones" style="font-size: 3rem;"></i>
+                        </div>
+                        <div style="padding: 20px;">
+                            <h4>Finding Peace in Troubled Times</h4>
+                            <p><strong>Date:</strong> September 3, 2023</p>
+                            <p><strong>Speaker:</strong> Elder David Johnson</p>
+                            <p>Learn how to experience God's peace even when circumstances are difficult.</p>
+                            <a href="#" class="btn" style="margin-top: 15px;">Listen Now</a>
+                        </div>
+                    </div>
+                    
+                    <div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
+                        <div style="height: 150px; background-color: #6c757d; display: flex; align-items: center; justify-content: center; color: white;">
+                            <i class="fas fa-video" style="font-size: 3rem;"></i>
+                        </div>
+                        <div style="padding: 20px;">
+                            <h4>The Joy of Giving</h4>
+                            <p><strong>Date:</strong> August 27, 2023</p>
+                            <p><strong>Speaker:</strong> Pastor Sarah Smith</p>
+                            <p>Discover the blessings that come from having a generous heart.</p>
+                            <a href="#" class="btn" style="margin-top: 15px;">Watch Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Us Section -->
+    <section id="contact" class="page-section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">Get In Touch</h3>
+                    <p>We would love to hear from you. Feel free to reach out to us with any questions, prayer requests, or concerns.</p>
+                    
+                    <div style="margin-top: 30px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <div style="width: 50px; height: 50px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white;">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Address</h4>
+                                <p>123 Church Road, Lahore, Pakistan</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <div style="width: 50px; height: 50px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white;">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+92 42 1234567</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                            <div style="width: 50px; height: 50px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white;">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@christapostolicministries.org</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h4>Office Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                        <p>Saturday: 9:00 AM - 12:00 PM</p>
+                        <p>Sunday: Closed (Worship Services only)</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 20px;">Send Us a Message</h3>
+                    <form style="background: var(--light-color); padding: 25px; border-radius: 10px;">
+                        <div style="margin-bottom: 20px;">
+                            <label for="name" style="display: block; margin-bottom: 5px; font-weight: bold;">Your Name</label>
+                            <input type="text" id="name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Email Address</label>
+                            <input type="email" id="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label for="subject" style="display: block; margin-bottom: 5px; font-weight: bold;">Subject</label>
+                            <input type="text" id="subject" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label for="message" style="display: block; margin-bottom: 5px; font-weight: bold;">Message</label>
+                            <textarea id="message" rows="5" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px;">
+                <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 20px;">Find Us</h3>
+                <div style="height: 300px; background-color: #ddd; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: #6c757d;"></i>
+                    <span style="margin-left: 15px; font-weight: bold;">Map would be embedded here</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Christ Apostolic Ministries</h3>
+                    <p>A place of worship, fellowship, and spiritual growth in Lahore, Pakistan.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#mission">Our Mission</a></li>
+                        <li><a href="#services">Service Hours</a></li>
+                        <li><a href="#events">Events & Media</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Church Road, Lahore, Pakistan</p>
+                    <p><i class="fas fa-phone"></i> +92 42 1234567</p>
+                    <p><i class="fas fa-envelope"></i> info@christapostolicministries.org</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Christ Apostolic Ministries, Lahore, Pakistan. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            
+            // Toggle mobile menu
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
