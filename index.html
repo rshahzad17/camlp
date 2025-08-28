@@ -795,35 +795,42 @@
     </footer>
 
  <script>
-        // Mobile menu functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const hamburger = document.getElementById('hamburger');
-            const navMenu = document.getElementById('nav-menu');
-            const overlay = document.getElementById('overlay');
-            
-            // Toggle mobile menu
-            hamburger.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-                overlay.classList.toggle('active');
-                hamburger.classList.toggle('active');
-            });
-            
-            // Close mobile menu when a link is clicked
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', function() {
-                    navMenu.classList.remove('active');
-                    overlay.classList.remove('active');
-                    hamburger.classList.remove('active');
-                });
-            });
-            
-            // Close menu when clicking on overlay
-            overlay.addEventListener('click', function() {
-                navMenu.classList.remove('active');
+     
+    document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const overlay = document.getElementById('overlay');
+
+    // Toggle mobile menu
+    hamburger.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        if (overlay) {
+            overlay.classList.toggle('active');
+        }
+        hamburger.classList.toggle('active');
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            if (overlay) {
                 overlay.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
+            }
+            hamburger.classList.remove('active');
         });
-    </script>
+    });
+
+    // Close menu when clicking on overlay
+    if (overlay) {
+        overlay.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    }
+});
+     
+</script>
 </body>
 </html>
