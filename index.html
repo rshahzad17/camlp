@@ -128,6 +128,7 @@
         .nav-menu {
             display: flex;
             list-style: none;
+            z-index: 1001; /* Ensure menu is above overlay */
         }
         
         .nav-menu li {
@@ -137,10 +138,9 @@
         .nav-menu a {
             color: var(--dark-color);
             font-weight: 600;
-            padding
-
-: 5px 0;
+            padding: 5px 0;
             position: relative;
+            display: block; /* Ensure links are clickable */
         }
         
         .nav-menu a:after {
@@ -163,6 +163,7 @@
             cursor: pointer;
             font-size: 1.5rem;
             color: var(--primary-color);
+            z-index: 1002; /* Ensure hamburger is above menu and overlay */
         }
         
         .hamburger.active .fa-bars {
@@ -180,7 +181,7 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
+            z-index: 999; /* Below menu and hamburger */
             opacity: 0;
             visibility: hidden;
             transition: opacity 0.3s, visibility 0.3s;
@@ -378,6 +379,7 @@
                 padding: 20px 0;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
                 transition: left 0.3s;
+                z-index: 1001; /* Ensure menu is above overlay */
             }
             
             .nav-menu.active {
@@ -808,7 +810,7 @@
             const hamburger = document.getElementById('hamburger');
             const navMenu = document.getElementById('nav-menu');
             const overlay = document.getElementById('overlay');
-            
+
             // Toggle mobile menu
             hamburger.addEventListener('click', function() {
                 navMenu.classList.toggle('active');
@@ -817,10 +819,22 @@
                 }
                 hamburger.classList.toggle('active');
             });
-            
-            // Close mobile menu when a link is clicked
+
+            // Handle link clicks with smooth scrolling and close menu
             document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default anchor behavior
+                    const targetId = this.getAttribute('href').substring(1); // Get ID without '#'
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        // Smooth scroll to target element
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        console.warn(`Element with ID ${targetId} not found`);
+                    }
+
+                    // Close the mobile menu
                     navMenu.classList.remove('active');
                     if (overlay) {
                         overlay.classList.remove('active');
@@ -828,7 +842,7 @@
                     hamburger.classList.remove('active');
                 });
             });
-            
+
             // Close menu when clicking on overlay
             if (overlay) {
                 overlay.addEventListener('click', function() {
@@ -837,6 +851,9 @@
                     hamburger.classList.remove('active');
                 });
             }
+
+            // Debug: Log any errors
+            console.log('Navigation menu initialized');
         });
     </script>
 </body>
