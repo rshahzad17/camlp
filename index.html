@@ -137,7 +137,9 @@
         .nav-menu a {
             color: var(--dark-color);
             font-weight: 600;
-            padding: 5px 0;
+            padding
+
+: 5px 0;
             position: relative;
         }
         
@@ -162,27 +164,33 @@
             font-size: 1.5rem;
             color: var(--primary-color);
         }
-       
-        /* Overlay Section */
-    .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    z-index: 999; /* Below the nav-menu but above other content */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s;
-}
-
-.overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-    
+        
+        .hamburger.active .fa-bars {
+            display: none;
+        }
+        
+        .hamburger.active .fa-times {
+            display: inline-block;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('homebackground.jpg');
@@ -401,6 +409,7 @@
             
             <div class="hamburger" id="hamburger">
                 <i class="fas fa-bars"></i>
+                <i class="fas fa-times" style="display: none;"></i>
             </div>
             
             <ul class="nav-menu" id="nav-menu">
@@ -412,6 +421,7 @@
                 <li><a href="#contact">Contact Us</a></li>
             </ul>
         </div>
+        <div id="overlay" class="overlay"></div>
     </header>
 
     <!-- Home Section -->
@@ -430,7 +440,7 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>Yousaf Rehmat Masih, the founder of Christ Apostolic Ministries, was a devoted servant of God whose ministry was deeply rooted in Romans 8:9 — "Now if any man have not the Spirit of Christ, he is none of His." </p>
-                    <p>He began preaching the Gospel with no desire for wealth, offerings, or worldly gain, relying solely on God’s provision. A father of ten sons, he instructed each of them to serve the Lord above all else. Known for his frequent three-day fasts and unwavering faith, he was spiritually strong and held divine authority over evil spirits. His legacy continues through his disciples and followers, who now lead churches throughout Pakistan. Yousaf Rehmat Masih remained faithful to God until his final breath, a true man of faith and obedience.Before leaving this world, he entrusted all his ministerial work to his beloved son , Rev Dr Riaz Yousaf, who is now the chairman of Christ Apostlic ministries.</p>
+                    <p>He began preaching the Gospel with no desire for wealth, offerings, or worldly gain, relying solely on God’s provision. A father of ten sons, he instructed each of them to serve the Lord above all else. Known for his frequent three-day fasts and unwavering faith, he was spiritually strong and held divine authority over evil spirits. His legacy continues through his disciples and followers, who now lead churches throughout Pakistan. Yousaf Rehmat Masih remained faithful to God until his final breath, a true man of faith and obedience. Before leaving this world, he entrusted all his ministerial work to his beloved son, Rev Dr Riaz Yousaf, who is now the chairman of Christ Apostolic Ministries.</p>
                     <p>Over the years, our church has grown from a small home fellowship to a congregation of over 500 members. Despite our growth, we have maintained our commitment to personal relationships and community building.</p>
                     <h3>Our Beliefs</h3>
                     <p>We believe in the Trinity: Father, Son, and Holy Spirit. We believe in the death, burial, and resurrection of Jesus Christ and that salvation comes only through Him. We believe in the power of prayer and the gifts of the Holy Spirit for today's church.</p>
@@ -695,15 +705,13 @@
 
                         <div style="display: flex; align-items: center; margin-bottom: 20px;">
                             <div style="width: 50px; height: 50px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white;">
-                           <i class="fa-brands fa-facebook"></i>
+                                <i class="fa-brands fa-facebook"></i>
                             </div>
                             <div>
-                             <h4>Facebook</h4>
-                           <a href="https://www.facebook.com/riaz.yousaf.9883"><span class="label"> Rev. Dr. Riaz Yousaf</span></a>
-
+                                <h4>Facebook</h4>
+                                <a href="https://www.facebook.com/riaz.yousaf.9883"><span class="label"> Rev. Dr. Riaz Yousaf</span></a>
                             </div>
                         </div>
-                      
                     </div>
                     
                     <div style="margin-top: 30px;">
@@ -744,10 +752,10 @@
             
             <div style="margin-top: 50px;">
                 <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 20px;">Find Us
-                <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: #6c757d;"></i>
-        		</h3>
-                <div display: flex; align-items: center; justify-content: inherit;">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.2711373214825!2d74.35755177423287!3d31.544172745968165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919050077005697%3A0xa616e2ca82864587!2sChrist%20Apostolic%20Ministries%2C%20Lahore%2C%20Pakistan!5e0!3m2!1sen!2slt!4v1756310659912!5m2!1sen!2slt" width=100% height=450 style="border:0></iframe>
+                    <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: #6c757d;"></i>
+                </h3>
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.2711373214825!2d74.35755177423287!3d31.544172745968165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919050077005697%3A0xa616e2ca82864587!2sChrist%20Apostolic%20Ministries%2C%20Lahore%2C%20Pakistan!5e0!3m2!1sen!2slt!4v1756310659912!5m2!1sen!2slt" width="100%" height="450" style="border:0;"></iframe>
                 </div>
             </div>
         </div>
@@ -794,43 +802,42 @@
         </div>
     </footer>
 
- <script>
-     
-    document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
-    const overlay = document.getElementById('overlay');
-
-    // Toggle mobile menu
-    hamburger.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        if (overlay) {
-            overlay.classList.toggle('active');
-        }
-        hamburger.classList.toggle('active');
-    });
-
-    // Close mobile menu when a link is clicked
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            const overlay = document.getElementById('overlay');
+            
+            // Toggle mobile menu
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                if (overlay) {
+                    overlay.classList.toggle('active');
+                }
+                hamburger.classList.toggle('active');
+            });
+            
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    if (overlay) {
+                        overlay.classList.remove('active');
+                    }
+                    hamburger.classList.remove('active');
+                });
+            });
+            
+            // Close menu when clicking on overlay
             if (overlay) {
-                overlay.classList.remove('active');
+                overlay.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    overlay.classList.remove('active');
+                    hamburger.classList.remove('active');
+                });
             }
-            hamburger.classList.remove('active');
         });
-    });
-
-    // Close menu when clicking on overlay
-    if (overlay) {
-        overlay.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            hamburger.classList.remove('active');
-        });
-    }
-});
-     
-</script>
+    </script>
 </body>
 </html>
