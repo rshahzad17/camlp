@@ -25,6 +25,7 @@
         
         html {
             scroll-behavior: smooth;
+            font-size: 14px; /* Base font size for mobile */
         }
         
         body {
@@ -32,6 +33,7 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: #f5f5f5;
+            -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
         }
         
         a {
@@ -55,12 +57,15 @@
             display: inline-block;
             background: var(--primary-color);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 22px; /* Larger for touch */
             border-radius: 5px;
             text-transform: uppercase;
             font-weight: 600;
             letter-spacing: 1px;
             transition: all 0.3s;
+            min-height: 44px; /* Minimum touch target size */
+            min-width: 44px;
+            text-align: center;
         }
         
         .btn:hover {
@@ -71,17 +76,19 @@
         
         img {
             max-width: 100%;
+            height: auto; /* Prevent distortion */
         }
         
         section {
-            padding: 60px 0;
+            padding: 40px 0; /* Reduced padding for mobile */
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px; /* Reduced margin for mobile */
             color: var(--primary-color);
             position: relative;
+            font-size: 1.8rem; /* Responsive font size */
         }
         
         .section-title:after {
@@ -106,7 +113,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 12px 0; /* Reduced padding for mobile */
         }
         
         .logo {
@@ -115,12 +122,12 @@
         }
         
         .logo img {
-            height: 60px;
+            height: 50px; /* Slightly smaller for mobile */
             margin-right: 10px;
         }
         
         .logo-text {
-            font-size: 1.5rem;
+            font-size: 1.2rem; /* Smaller for mobile */
             font-weight: 700;
             color: var(--primary-color);
         }
@@ -132,15 +139,18 @@
         }
         
         .nav-menu li {
-            margin-left: 25px;
+            margin-left: 20px; /* Reduced spacing for mobile */
         }
         
         .nav-menu a {
             color: var(--dark-color);
             font-weight: 600;
-            padding: 5px 0;
+            padding: 8px 0; /* Increased padding for touch */
             position: relative;
             display: block;
+            min-height: 44px; /* Minimum touch target */
+            display: flex;
+            align-items: center;
         }
         
         .nav-menu a:after {
@@ -164,6 +174,10 @@
             font-size: 1.5rem;
             color: var(--primary-color);
             z-index: 1002;
+            min-width: 44px; /* Minimum touch target */
+            min-height: 44px;
+            justify-content: center;
+            align-items: center;
         }
         
         .hamburger.active .fa-bars {
@@ -199,19 +213,21 @@
             background-position: center;
             color: white;
             text-align: center;
-            padding: 100px 0;
+            padding: 80px 0; /* Reduced padding for mobile */
         }
         
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.2rem; /* Smaller for mobile */
             margin-bottom: 20px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            line-height: 1.3;
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             max-width: 700px;
             margin: 0 auto 30px;
+            padding: 0 15px; /* Added padding for mobile */
         }
         
         /* About Preview */
@@ -221,19 +237,29 @@
         
         .about-content {
             display: flex;
+            flex-direction: column; /* Stack on mobile by default */
             align-items: center;
-            gap: 40px;
+            gap: 30px; /* Reduced gap for mobile */
         }
         
         .about-text {
-            flex: 1;
+            width: 100%;
         }
         
         .about-image {
-            flex: 1;
+            width: 100%;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image-placeholder {
+            height: 250px; /* Reduced height for mobile */
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
         }
         
         /* Services */
@@ -243,8 +269,8 @@
         
         .service-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr; /* Single column on mobile */
+            gap: 20px; /* Reduced gap for mobile */
         }
         
         .service-card {
@@ -256,50 +282,116 @@
         }
         
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px); /* Reduced transform for mobile */
         }
         
         .service-img {
-            height: 200px;
+            height: 180px; /* Reduced height for mobile */
             background-color: var(--primary-color);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 3rem;
+            font-size: 2.5rem; /* Smaller icon for mobile */
         }
         
         .service-content {
-            padding: 20px;
+            padding: 15px; /* Reduced padding for mobile */
         }
         
         .service-content h3 {
             color: var(--primary-color);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        
+        /* Schedule Styles */
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+        
+        .schedule-item > div:first-child {
+            font-weight: bold;
+            margin-right: 15px;
+            margin-bottom: 5px;
+        }
+        
+        /* Events & Media */
+        .event-grid, .media-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on mobile */
+            gap: 20px; /* Reduced gap for mobile */
+        }
+        
+        .event-card, .media-card {
+            background: var(--light-color);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .event-image, .media-video {
+            height: 180px; /* Reduced height for mobile */
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .media-video {
+            background-color: transparent;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .event-content, .media-content {
+            padding: 15px; /* Reduced padding for mobile */
         }
         
         /* Footer */
         footer {
             background: var(--dark-color);
             color: white;
-            padding: 60px 0 20px;
+            padding: 40px 0 20px; /* Reduced padding for mobile */
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: 1fr; /* Single column on mobile */
+            gap: 30px; /* Reduced gap for mobile */
+            margin-bottom: 30px;
         }
         
         .footer-section h3 {
             color: var(--secondary-color);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-size: 1.2rem;
         }
         
         .footer-section p {
             margin-bottom: 10px;
+            line-height: 1.5;
         }
         
         .footer-section ul {
@@ -312,6 +404,9 @@
         
         .footer-section a {
             color: #ddd;
+            min-height: 30px; /* Minimum touch target */
+            display: flex;
+            align-items: center;
         }
         
         .footer-section a:hover {
@@ -320,8 +415,8 @@
         
         .social-icons {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 12px; /* Reduced gap for mobile */
+            margin-top: 15px;
         }
         
         .social-icons a {
@@ -334,6 +429,8 @@
             border-radius: 50%;
             color: white;
             transition: all 0.3s;
+            min-width: 44px; /* Minimum touch target */
+            min-height: 44px;
         }
         
         .social-icons a:hover {
@@ -351,12 +448,40 @@
         
         /* Page Content Styles */
         .page-section {
-            padding: 80px 0;
+            padding: 50px 0; /* Reduced padding for mobile */
             background: white;
-            min-height: 80vh;
+            min-height: auto; /* Remove fixed height for mobile */
         }
         
-        /* Form Feedback Styles */
+        /* Form Styles */
+        .contact-form {
+            background: var(--light-color);
+            padding: 20px; /* Reduced padding for mobile */
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px; /* Reduced margin for mobile */
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px; /* Increased padding for touch */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px; /* Prevent zoom on iOS */
+        }
+        
+        textarea.form-control {
+            min-height: 120px; /* Reduced height for mobile */
+        }
+        
         .form-message {
             display: none;
             margin-top: 15px;
@@ -375,21 +500,126 @@
             color: #721c24;
         }
         
+        /* Contact Info */
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+        
+        .contact-details {
+            flex: 1;
+        }
+        
+        /* Map */
+        .map-container {
+            height: 300px; /* Reduced height for mobile */
+            margin-top: 30px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 8px;
+        }
+        
         /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
+        @media (min-width: 576px) {
+            html {
+                font-size: 15px; /* Slightly larger base font for tablets */
             }
             
-            .about-image {
-                order: -1;
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
             }
         }
         
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
+            html {
+                font-size: 16px; /* Normal base font for larger screens */
+            }
+            
+            section {
+                padding: 60px 0; /* Restore padding for larger screens */
+            }
+            
+            .about-content {
+                flex-direction: row; /* Side by side on larger screens */
+                gap: 40px;
+            }
+            
+            .service-cards {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 30px;
+            }
+            
+            .event-grid, .media-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 25px;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 40px;
+            }
+            
+            .page-section {
+                padding: 80px 0; /* Restore padding for larger screens */
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .hero {
+                padding: 100px 0; /* Restore padding for larger screens */
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            /* Show desktop nav, hide hamburger */
+            .nav-menu {
+                position: static;
+                flex-direction: row;
+                width: auto;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+            }
+            
+            .hamburger {
+                display: none;
+            }
+            
+            .overlay {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 767px) {
             .nav-menu {
                 position: fixed;
-                top: 80px;
+                top: 74px; /* Adjusted based on header height */
                 left: -100%;
                 background: white;
                 width: 100%;
@@ -399,6 +629,8 @@
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
                 transition: left 0.3s;
                 z-index: 1001;
+                max-height: calc(100vh - 74px);
+                overflow-y: auto;
             }
             
             .nav-menu.active {
@@ -406,15 +638,38 @@
             }
             
             .nav-menu li {
-                margin: 15px 0;
+                margin: 12px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-menu a {
+                justify-content: center;
+                padding: 12px 20px;
             }
             
             .hamburger {
-                display: block;
+                display: flex;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
+            /* Improve schedule display on mobile */
+            .schedule-item {
+                flex-direction: column;
+            }
+            
+            .schedule-item > div:last-child {
+                margin-top: 5px;
+                color: var(--text-light);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
             }
         }
     </style>
@@ -424,11 +679,11 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <i class="fas fa-church" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                <i class="fas fa-church" style="font-size: 2rem; color: var(--primary-color);"></i>
                 <div class="logo-text">Christ Apostolic Ministries</div>
             </div>
             
-            <div class="hamburger" id="hamburger">
+            <div class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-times" style="display: none;"></i>
             </div>
@@ -461,14 +716,14 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>Yousaf Rehmat Masih, the founder of Christ Apostolic Ministries, was a devoted servant of God whose ministry was deeply rooted in Romans 8:9 — "Now if any man have not the Spirit of Christ, he is none of His." </p>
-                    <p>He began preaching the Gospel with no desire for wealth, offerings, or worldly gain, relying solely on God’s provision. A father of ten sons, he instructed each of them to serve the Lord above all else. Known for his frequent three-day fasts and unwavering faith, he was spiritually strong and held divine authority over evil spirits. His legacy continues through his disciples and followers, who now lead churches throughout Pakistan. Yousaf Rehmat Masih remained faithful to God until his final breath, a true man of faith and obedience. Before leaving this world, he entrusted all his ministerial work to his beloved son, Rev Dr Riaz Yousaf, who is now the chairman of Christ Apostolic Ministries.</p>
+                    <p>He began preaching the Gospel with no desire for wealth, offerings, or worldly gain, relying solely on God's provision. A father of ten sons, he instructed each of them to serve the Lord above all else. Known for his frequent three-day fasts and unwavering faith, he was spiritually strong and held divine authority over evil spirits. His legacy continues through his disciples and followers, who now lead churches throughout Pakistan. Yousaf Rehmat Masih remained faithful to God until his final breath, a true man of faith and obedience. Before leaving this world, he entrusted all his ministerial work to his beloved son, Rev Dr Riaz Yousaf, who is now the chairman of Christ Apostolic Ministries.</p>
                     <p>Over the years, our church has grown from a small home fellowship to a congregation of over 500 members. Despite our growth, we have maintained our commitment to personal relationships and community building.</p>
                     <h3>Our Beliefs</h3>
                     <p>We believe in the Trinity: Father, Son, and Holy Spirit. We believe in the death, burial, and resurrection of Jesus Christ and that salvation comes only through Him. We believe in the power of prayer and the gifts of the Holy Spirit for today's church.</p>
                 </div>
                 <div class="about-image">
-                    <div style="height: 400px; background-color: #1a3c6c; display: flex; align-items: center; justify-content: center; color: white;">
-                        <img src="ministry.jpg" alt="" />
+                    <div class="about-image-placeholder">
+                        <img src="https://scontent.fvno8-1.fna.fbcdn.net/v/t39.30808-6/477687565_2050355465437399_4368492919068334281_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=LKf-Wpipc-YQ7kNvwEVpSd-&_nc_oc=Adm_hR-43dE5DWQ3wTuVonzzA-VHZUJbllHwbHkyHrad3rwWuHHwJRNXLTftFu5v954&_nc_zt=23&_nc_ht=scontent.fvno8-1.fna&_nc_gid=D9YewNXq65XSAJsh17wzDw&oh=00_AfYg5tXiqx8eNwGfhppIjLyRsOO6Q2_QCj3GNOoL1KiYIw&oe=68BDEF40" alt="" />
                     </div>
                 </div>
             </div>
@@ -481,8 +736,8 @@
             <h2 class="section-title">Our Mission</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <div style="height: 400px; background-color: #c9a43f; display: flex; align-items: center; justify-content: center; color: white;">
-                        <img src="ourmission.jpg" alt="" />
+                    <div class="about-image-placeholder" style="background-color: #c9a43f;">
+                        <img src="https://scontent.fvno8-1.fna.fbcdn.net/v/t39.30808-6/488257243_2091992107940401_1552092064413928908_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=-wt5Y3xQRwgQ7kNvwHRPNhP&_nc_oc=Adm2Jcr6DaIgXhIjB_XGKGSmdqnXPd4EsX06A6amJW7jKjq9hKzUO98a-5JqnaHfNBU&_nc_zt=23&_nc_ht=scontent.fvno8-1.fna&_nc_gid=RV9yi1xs4-luiuGhrjUZiA&oh=00_AfatUiSaroEiOfW5183HBxZm10D8XhmSY9w6Xc-L-f1IFw&oe=68BDE8B8"/>
                     </div>
                 </div>
                 <div class="about-text">
@@ -517,66 +772,66 @@
             <h2 class="section-title">Church Service Hours</h2>
             
             <div style="max-width: 800px; margin: 0 auto;">
-                <div style="background-color: var(--light-color); padding: 30px; border-radius: 10px; margin-bottom: 30px;">
+                <div style="background-color: var(--light-color); padding: 20px; border-radius: 10px; margin-bottom: 30px;">
                     <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 20px;">Regular Weekly Schedule</h3>
                     
-                    <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
-                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
-                            <div style="font-weight: bold;">Sunday Worship Service</div>
+                    <div>
+                        <div class="schedule-item">
+                            <div>Sunday Worship Service</div>
                             <div>10:00 AM - 12:00 PM</div>
                         </div>
                         
-                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
-                            <div style="font-weight: bold;">Wednesday Worship Service</div>
+                        <div class="schedule-item">
+                            <div>Wednesday Worship Service</div>
                             <div>7:00 PM - 9:00 PM</div>
                         </div>
                         
-                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
-                            <div style="font-weight: bold;">Youth Fellowship</div>
+                        <div class="schedule-item">
+                            <div>Youth Fellowship</div>
                             <div>Sundays at 4:00 PM</div>
                         </div>
                         
-                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
-                            <div style="font-weight: bold;">Bible Study (Adults)</div>
+                        <div class="schedule-item">
+                            <div>Bible Study (Adults)</div>
                             <div>Wednesdays at 6:00 PM</div>
                         </div>
                         
-                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
-                            <div style="font-weight: bold;">Prayer Meeting</div>
+                        <div class="schedule-item">
+                            <div>Prayer Meeting</div>
                             <div>Fridays at 5:00 PM</div>
                         </div>
                         
-                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
-                            <div style="font-weight: bold;">Women's Fellowship</div>
+                        <div class="schedule-item">
+                            <div>Women's Fellowship</div>
                             <div>First Saturday of each month at 10:00 AM</div>
                         </div>
                         
-                        <div style="display: flex; justify-content: space-between; padding: 15px; background: white; border-radius: 5px;">
-                            <div style="font-weight: bold;">Sunday School</div>
+                        <div class="schedule-item">
+                            <div>Sunday School</div>
                             <div>8:30 AM to 9:30 AM</div>
                         </div>
                     </div>
                 </div>
                 
-                <div style="background-color: var(--light-color); padding: 30px; border-radius: 10px;">
+                <div style="background-color: var(--light-color); padding: 20px; border-radius: 10px;">
                     <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 20px;">Special Services</h3>
                     <p style="text-align: center; margin-bottom: 20px;">Join us for these special services throughout the year</p>
                     
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                        <div style="background: white; padding: 20px; border-radius: 5px;">
+                    <div class="event-grid">
+                        <div style="background: white; padding: 15px; border-radius: 5px;">
                             <h4 style="color: var(--primary-color);">Easter Services</h4>
                             <p>Good Friday: 5:00 PM</p>
                             <p>Easter Sunrise Service: 6:00 AM</p>
                             <p>Easter Celebration: 10:00 AM</p>
                         </div>
                         
-                        <div style="background: white; padding: 20px; border-radius: 5px;">
+                        <div style="background: white; padding: 15px; border-radius: 5px;">
                             <h4 style="color: var(--primary-color);">Christmas Services</h4>
                             <p>Christmas Eve Service: 10:00 PM</p>
                             <p>Christmas Day Service: 10:00 AM</p>
                         </div>
                         
-                        <div style="background: white; padding: 20px; border-radius: 5px;">
+                        <div style="background: white; padding: 15px; border-radius: 5px;">
                             <h4 style="color: var(--primary-color);">Thanksgiving Service</h4>
                             <p>Thanksgiving Day: 10:00 AM</p>
                         </div>
@@ -594,12 +849,12 @@
             <div style="margin-bottom: 40px;">
                 <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 30px;">Upcoming Events</h3>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
-                    <div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
-                        <div style="height: 150px; background-color: var(--primary-color); display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-calendar-alt" style="font-size: 3rem;"></i>
+                <div class="event-grid">
+                    <div class="event-card">
+                        <div class="event-image">
+                            <i class="fas fa-calendar-alt fa-3x"></i>
                         </div>
-                        <div style="padding: 20px;">
+                        <div class="event-content">
                             <h4>Annual Church Picnic</h4>
                             <p><strong>Date:</strong> October 18, 2025</p>
                             <p><strong>Time:</strong> 11:00 AM - 3:00 PM</p>
@@ -608,11 +863,11 @@
                         </div>
                     </div>
                     
-                    <div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
-                        <div style="height: 150px; background-color: var(--secondary-color); display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-music" style="font-size: 3rem;"></i>
+                    <div class="event-card">
+                        <div class="event-image" style="background-color: var(--secondary-color);">
+                            <i class="fas fa-music fa-3x"></i>
                         </div>
-                        <div style="padding: 20px;">
+                        <div class="event-content">
                             <h4>Worship Night</h4>
                             <p><strong>Date:</strong> November 5, 2025</p>
                             <p><strong>Time:</strong> 6:00 PM - 8:00 PM</p>
@@ -621,11 +876,11 @@
                         </div>
                     </div>
                     
-                    <div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
-                        <div style="height: 150px; background-color: var(--accent-color); display: flex; align-items: center; justify-content: center; color: white;">
-                            <i class="fas fa-hands-helping" style="font-size: 3rem;"></i>
+                    <div class="event-card">
+                        <div class="event-image" style="background-color: var(--accent-color);">
+                            <i class="fas fa-hands-helping fa-3x"></i>
                         </div>
-                        <div style="padding: 20px;">
+                        <div class="event-content">
                             <h4>Community Outreach</h4>
                             <p><strong>Date:</strong> December 10, 2025</p>
                             <p><strong>Time:</strong> 9:00 AM - 1:00 PM</p>
@@ -639,76 +894,79 @@
             <div>
                 <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 30px;">Media</h3>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
-                    <div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
-                        <div style="height: 185px; background-color: #6c757d; display: flex; align-items: center; justify-content: center; color: white;">
-			<iframe src="https://www.facebook.com/plugins/video.php?height=300&href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fvideos%			2F1093287159033596%2F&show_text=false&width=560&t=0" width="560" height="185" style="border:none;overflow:hidden" scrolling="no" 			frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 				allowFullScreen="true"></iframe>                       
-			</div>
-                        <div style="padding: 20px;">
+                <div class="media-grid">
+                    <div class="media-card">
+                        <div class="media-video">
+                            <div class="video-container">
+                                <iframe src="https://www.facebook.com/plugins/video.php?height=300&href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fvideos%2F1093287159033596%2F&show_text=false&width=560&t=0" width="560" height="185" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                            </div>
+                        </div>
+                        <div class="media-content">
                             <h4>Procession of Graduates at Great Commission Bible College</h4>
                             <p><strong>Date:</strong> October 17, 2022</p>
-	                    		
                         </div>
                     </div>
                     
-                    <div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
-                        <div style="height: 185px; background-color: #6c757d; display: flex; align-items: center; justify-content: center; color: white;">
-			<iframe src="https://www.facebook.com/plugins/video.php?height=316&href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fvideos%2F985956459274202%2F&show_text=false&width=560&t=0" width="560" height="185" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>                      
-			</div>
-                        <div style="padding: 20px;">
+                    <div class="media-card">
+                        <div class="media-video">
+                            <div class="video-container">
+                                <iframe src="https://www.facebook.com/plugins/video.php?height=316&href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fvideos%2F985956459274202%2F&show_text=false&width=560&t=0" width="560" height="185" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                            </div>
+                        </div>
+                        <div class="media-content">
                             <h4>The Message of Peace by Rev. Dr. Riaz Yousaf on Roze News Pakistan</h4>
                             <p><strong>Date:</strong> August 24, 2023</p>
-		
                         </div>
                     </div>
 
-                    
-			<div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
-                        <div style="height: 185px; background-color: #6c757d; display: flex; align-items: center; justify-content: center; color: white;">
-			<iframe src="https://www.facebook.com/plugins/video.php?height=316&href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fvideos%2F1102267584419416%2F&show_text=false&width=560&t=0" width="560" height="185" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>                  
-			</div>
-                        <div style="padding: 20px;">
+                    <div class="media-card">
+                        <div class="media-video">
+                            <div class="video-container">
+                                <iframe src="https://www.facebook.com/plugins/video.php?height=316&href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fvideos%2F1102267584419416%2F&show_text=false&width=560&t=0" width="560" height="185" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                            </div>
+                        </div>
+                        <div class="media-content">
                             <h4>Christmas Celebration with Community</h4>
                             <p><strong>Date:</strong> December 21, 2024</p>
-
                         </div>
                     </div>
 
-			<div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
-                        <div style="height: 185px; background-color: #6c757d; display: flex; align-items: center; justify-content: center; color: white;">
-			<iframe src="https://www.facebook.com/plugins/video.php?height=308&href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fvideos%2F812843503154270%2F&show_text=false&width=560&t=0" width="560" height="185" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>                 
-			</div>
-                        <div style="padding: 20px;">
+                    <div class="media-card">
+                        <div class="media-video">
+                            <div class="video-container">
+                                <iframe src="https://www.facebook.com/plugins/video.php?height=308&href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fvideos%2F812843503154270%2F&show_text=false&width=560&t=0" width="560" height="185" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                            </div>
+                        </div>
+                        <div class="media-content">
                             <h4>Prayer Service at Community Member's Home</h4>
                             <p><strong>Date:</strong> November 30, 2022</p>
-
                         </div>
                     </div>
-			<div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
-                        <div style="height: 185px; background-color: #6c757d; display: flex; align-items: center; justify-content: center; color: white;">
-			<iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fvideos%2F4012762889054402%2F&show_text=false&width=560&t=0" width="560" height="185" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>                
-			</div>
-                        <div style="padding: 20px;">
+                    
+                    <div class="media-card">
+                        <div class="media-video">
+                            <div class="video-container">
+                                <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fvideos%2F4012762889054402%2F&show_text=false&width=560&t=0" width="560" height="185" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                            </div>
+                        </div>
+                        <div class="media-content">
                             <h4>Community Baptism</h4>
                             <p><strong>Date:</strong> July 28, 2025</p>
-
                         </div>
                     </div>
-			<div style="background: var(--light-color); border-radius: 10px; overflow: hidden;">
-                        <div style="height: 185px; background-color: #6c757d; display: flex; align-items: center; justify-content: center; color: white;">
-			<iframe src="https://www.facebook.com/plugins/video.php?height=266&href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fvideos%2F1407239480033939%2F&show_text=false&width=560&t=0" width="560" height="168" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>              
-			</div>
-                        <div style="padding: 20px;">
+                    
+                    <div class="media-card">
+                        <div class="media-video">
+                            <div class="video-container">
+                                <iframe src="https://www.facebook.com/plugins/video.php?height=266&href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fvideos%2F1407239480033939%2F&show_text=false&width=560&t=0" width="560" height="168" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                            </div>
+                        </div>
+                        <div class="media-content">
                             <h4>Theology Teaching Session at Great Commission Bible College</h4>
                             <p><strong>Date:</strong> January 6, 2023</p>
-
                         </div>
                     </div>
-
-
                 </div>
-
-
             </div>
         </div>
     </section>
@@ -718,47 +976,47 @@
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+            <div class="footer-content">
                 <div>
                     <h3 style="color: var(--primary-color); margin-bottom: 20px;">Get In Touch</h3>
                     <p>We would love to hear from you. Feel free to reach out to us with any questions, prayer requests, or concerns.</p>
                     
                     <div style="margin-top: 30px;">
-                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                            <div style="width: 50px; height: 50px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white;">
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
-                            <div>
+                            <div class="contact-details">
                                 <h4>Address</h4>
-                                <p>E98/2 St# 7 Mian Mir Colony,</p> <p>Altaf Road Lahore Cantt,</p> <p>Lahore, Pakistan</p>
+                                <p>E98/2 St# 7 Mian Mir Colony, Altaf Road Lahore Cantt, Lahore, Pakistan</p>
                             </div>
                         </div>
                         
-                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                            <div style="width: 50px; height: 50px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white;">
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
-                            <div>
+                            <div class="contact-details">
                                 <h4>Phone</h4>
                                 <p>+92 323 8493968</p>
                             </div>
                         </div>
                         
-                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                            <div style="width: 50px; height: 50px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white;">
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
-                            <div>
+                            <div class="contact-details">
                                 <h4>Email</h4>
                                 <p>riazyousaf39@gmail.com</p>
                             </div>
                         </div>
 
-                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                            <div style="width: 50px; height: 50px; background: var(--primary-color); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; color: white;">
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
                                 <i class="fa-brands fa-facebook"></i>
                             </div>
-                            <div>
+                            <div class="contact-details">
                                 <h4>Facebook</h4>
                                 <a href="https://www.facebook.com/riaz.yousaf.9883"><span class="label"> Rev. Dr. Riaz Yousaf</span></a>
                             </div>
@@ -775,25 +1033,25 @@
                 
                 <div>
                     <h3 style="color: var(--primary-color); margin-bottom: 20px;">Send Us a Message</h3>
-                    <form id="contact-form" style="background: var(--light-color); padding: 25px; border-radius: 10px;">
-                        <div style="margin-bottom: 20px;">
-                            <label for="name" style="display: block; margin-bottom: 5px; font-weight: bold;">Your Name</label>
-                            <input type="text" id="name" name="name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         
-                        <div style="margin-bottom: 20px;">
-                            <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Email Address</label>
-                            <input type="email" id="email" name="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         
-                        <div style="margin-bottom: 20px;">
-                            <label for="subject" style="display: block; margin-bottom: 5px; font-weight: bold;">Subject</label>
-                            <input type="text" id="subject" name="subject" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
                         </div>
                         
-                        <div style="margin-bottom: 20px;">
-                            <label for="message" style="display: block; margin-bottom: 5px; font-weight: bold;">Message</label>
-                            <textarea id="message" name="message" rows="5" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;" required></textarea>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
                         </div>
                         
                         <button type="submit" class="btn" style="width: 100%;">Send Message</button>
@@ -803,11 +1061,9 @@
             </div>
             
             <div style="margin-top: 50px;">
-                <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 20px;">Find Us
-                    <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: #6c757d;"></i>
-                </h3>
-                <div style="display: flex; align-items: center; justify-content: center;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.2711373214825!2d74.35755177423287!3d31.544172745968165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919050077005697%3A0xa616e2ca82864587!2sChrist%20Apostolic%20Ministries%2C%20Lahore%2C%20Pakistan!5e0!3m2!1sen!2slt!4v1756310659912!5m2!1sen!2slt" width="100%" height="450" style="border:0;"></iframe>
+                <h3 style="text-align: center; color: var(--primary-color); margin-bottom: 20px;">Find Us</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.2711373214825!2d74.35755177423287!3d31.544172745968165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919050077005697%3A0xa616e2ca82864587!2sChrist%20Apostolic%20Ministries%2C%20Lahore%2C%20Pakistan!5e0!3m2!1sen!2slt!4v1756310659912!5m2!1sen!2slt"></iframe>
                 </div>
             </div>
         </div>
@@ -868,6 +1124,9 @@
                     overlay.classList.toggle('active');
                 }
                 hamburger.classList.toggle('active');
+                
+                // Prevent body from scrolling when menu is open
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
             });
 
             // Handle link clicks with smooth scrolling and close menu
@@ -888,6 +1147,7 @@
                         overlay.classList.remove('active');
                     }
                     hamburger.classList.remove('active');
+                    document.body.style.overflow = ''; // Re-enable scrolling
                 });
             });
 
@@ -897,6 +1157,7 @@
                     navMenu.classList.remove('active');
                     overlay.classList.remove('active');
                     hamburger.classList.remove('active');
+                    document.body.style.overflow = ''; // Re-enable scrolling
                 });
             }
 
