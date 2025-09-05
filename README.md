@@ -1,1 +1,1 @@
-simple static html based webpage
+simple static html and css based webpage
