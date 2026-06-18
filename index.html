@@ -1121,6 +1121,46 @@
         </div>
     </footer>
 
+
+<!-- 1. YOUR FIXED HTML STRUCTURE -->
+<form id="contact-form">
+    <!-- MANDATORY: Put your actual Web3Forms access key inside the value quotes below -->
+    <input type="hidden" name="access_key" value="d63f6e4f-de9d-4562-bee4-9eaa7a373638">
+
+    <!-- Anti-bot Spam Honeypot Protection -->
+    <input type="checkbox" name="botcheck" style="display: none;">
+
+    <div class="form-group">
+        <label for="name">Your Name</label>
+        <!-- Added id="name" so JavaScript can find it -->
+        <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <!-- Added id="email" so JavaScript can find it -->
+        <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+        <label for="subject">Subject</label>
+        <!-- Added id="subject" so JavaScript can find it -->
+        <input type="text" id="subject" name="subject" required>
+    </div>
+
+    <div class="form-group">
+        <label for="message">Message</label>
+        <!-- Added id="message" so JavaScript can find it -->
+        <textarea id="message" name="message" required></textarea>
+    </div>
+
+    <button type="submit">Send Message</button>
+    
+    <!-- Status message container for errors or success notifications -->
+    <div id="form-message" class="form-message" style="display: none;"></div>
+</form>
+
+    
     <script>
         // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -1162,49 +1202,9 @@
                 });
             });
 
-         
-     
-<!-- 1. YOUR FIXED HTML STRUCTURE -->
-<form id="contact-form">
-    <!-- MANDATORY: Put your actual Web3Forms access key inside the value quotes below -->
-    <input type="hidden" name="access_key" value="d63f6e4f-de9d-4562-bee4-9eaa7a373638">
-
-    <!-- Anti-bot Spam Honeypot Protection -->
-    <input type="checkbox" name="botcheck" style="display: none;">
-
-    <div class="form-group">
-        <label for="name">Your Name</label>
-        <!-- Added id="name" so JavaScript can find it -->
-        <input type="text" id="name" name="name" required>
-    </div>
-
-    <div class="form-group">
-        <label for="email">Email Address</label>
-        <!-- Added id="email" so JavaScript can find it -->
-        <input type="email" id="email" name="email" required>
-    </div>
-
-    <div class="form-group">
-        <label for="subject">Subject</label>
-        <!-- Added id="subject" so JavaScript can find it -->
-        <input type="text" id="subject" name="subject" required>
-    </div>
-
-    <div class="form-group">
-        <label for="message">Message</label>
-        <!-- Added id="message" so JavaScript can find it -->
-        <textarea id="message" name="message" required></textarea>
-    </div>
-
-    <button type="submit">Send Message</button>
-    
-    <!-- Status message container for errors or success notifications -->
-    <div id="form-message" class="form-message" style="display: none;"></div>
-</form>
-
-
+                                  
 <!-- 2. YOUR CORRECTED JAVASCRIPT CODE -->
-<script>
+
     // Navigation controllers (Safe-guards against missing menu items)
     let overlay = document.querySelector('.overlay');
     let navMenu = document.querySelector('.nav-menu');
