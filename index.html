@@ -737,10 +737,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#events">Events & Media</a></li>
                 <li><a href="#contact">Contact Us</a></li>
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms and Conditions</a></li>
-
-            </ul>
+              </ul>
         </div>
         <div id="overlay" class="overlay"></div>
     </header>
@@ -1153,6 +1150,33 @@
                     <p><i class="fas fa-phone"></i> +92 323 8493968</p>
                     <p><i class="fas fa-envelope"></i> riazyousaf39@gmail.com</p>
                 </div>
+                <!-- Live Visitor Counter Container -->
+<div style="margin-top: 15px; font-family: 'Segoe UI', Arial, sans-serif; font-size: 0.85rem; color: #888888;">
+    Total Site Visits: <span id="visitor-count" style="font-weight: bold; color: #0056b3; background: #eef2f5; padding: 2px 8px; border-radius: 4px;">Loading...</span>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // A completely unique key for your church website to keep your count separate
+        const siteKey = "christ_apostolic_ministries_lahore_2026"; 
+        
+        // Using the active, free, no-auth replacement API server
+        const counterUrl = `https://countapi.mileshilliard.com/api/v1/hit/${siteKey}`;
+
+        fetch(counterUrl)
+            .then(response => response.json())
+            .then(data => {
+                // The API returns the format { "value": X }
+                if(data && data.value) {
+                    document.getElementById("visitor-count").innerText = data.value.toLocaleString();
+                }
+            })
+            .catch(error => {
+                console.log("Counter error, displaying fallback.");
+                document.getElementById("visitor-count").innerText = "Verified";
+            });
+    });
+</script>
             </div>
             
             <div class="copyright">
