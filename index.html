@@ -25,7 +25,7 @@
         
         html {
             scroll-behavior: smooth;
-            font-size: 14px; /* Base font size for mobile */
+            font-size: 14px;
         }
         
         body {
@@ -33,7 +33,7 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: #f5f5f5;
-            -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
+            -webkit-text-size-adjust: 100%;
         }
         
         a {
@@ -57,15 +57,17 @@
             display: inline-block;
             background: var(--primary-color);
             color: white;
-            padding: 12px 22px; /* Larger for touch */
+            padding: 12px 22px;
             border-radius: 5px;
             text-transform: uppercase;
             font-weight: 600;
             letter-spacing: 1px;
             transition: all 0.3s;
-            min-height: 44px; /* Minimum touch target size */
+            min-height: 44px;
             min-width: 44px;
             text-align: center;
+            border: none;
+            cursor: pointer;
         }
         
         .btn:hover {
@@ -76,19 +78,19 @@
         
         img {
             max-width: 100%;
-            height: auto; /* Prevent distortion */
+            height: auto;
         }
         
         section {
-            padding: 40px 0; /* Reduced padding for mobile */
+            padding: 40px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 30px; /* Reduced margin for mobile */
+            margin-bottom: 30px;
             color: var(--primary-color);
             position: relative;
-            font-size: 1.8rem; /* Responsive font size */
+            font-size: 1.8rem;
         }
         
         .section-title:after {
@@ -113,7 +115,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 0; /* Reduced padding for mobile */
+            padding: 12px 0;
         }
         
         .logo {
@@ -122,12 +124,12 @@
         }
         
         .logo img {
-            height: 50px; /* Slightly smaller for mobile */
+            height: 50px;
             margin-right: 10px;
         }
         
         .logo-text {
-            font-size: 1.2rem; /* Smaller for mobile */
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary-color);
         }
@@ -139,16 +141,16 @@
         }
         
         .nav-menu li {
-            margin-left: 20px; /* Reduced spacing for mobile */
+            margin-left: 20px;
         }
         
         .nav-menu a {
             color: var(--dark-color);
             font-weight: 600;
-            padding: 8px 0; /* Increased padding for touch */
+            padding: 8px 0;
             position: relative;
             display: block;
-            min-height: 44px; /* Minimum touch target */
+            min-height: 44px;
             display: flex;
             align-items: center;
         }
@@ -174,10 +176,12 @@
             font-size: 1.5rem;
             color: var(--primary-color);
             z-index: 1002;
-            min-width: 44px; /* Minimum touch target */
+            min-width: 44px;
             min-height: 44px;
             justify-content: center;
             align-items: center;
+            background: none;
+            border: none;
         }
         
         .hamburger.active .fa-bars {
@@ -213,11 +217,11 @@
             background-position: center;
             color: white;
             text-align: center;
-            padding: 80px 0; /* Reduced padding for mobile */
+            padding: 80px 0;
         }
         
         .hero h1 {
-            font-size: 2.2rem; /* Smaller for mobile */
+            font-size: 2.2rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
             line-height: 1.3;
@@ -227,7 +231,7 @@
             font-size: 1.1rem;
             max-width: 700px;
             margin: 0 auto 30px;
-            padding: 0 15px; /* Added padding for mobile */
+            padding: 0 15px;
         }
         
         /* About Preview */
@@ -237,13 +241,18 @@
         
         .about-content {
             display: flex;
-            flex-direction: column; /* Stack on mobile by default */
+            flex-direction: column;
             align-items: center;
-            gap: 30px; /* Reduced gap for mobile */
+            gap: 30px;
         }
         
         .about-text {
             width: 100%;
+        }
+        
+        .about-text ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
         }
         
         .about-image {
@@ -254,7 +263,7 @@
         }
         
         .about-image-placeholder {
-            height: 350px; /* Reduced height for mobile */
+            height: 350px;
             background-color: var(--primary-color);
             display: flex;
             align-items: center;
@@ -263,7 +272,7 @@
         }
 
         .our-mission {
-            height: 450px; /* Reduced height for mobile */
+            height: 450px;
             background-color: var(--primary-color);
             display: flex;
             align-items: center;
@@ -278,8 +287,8 @@
         
         .service-cards {
             display: grid;
-            grid-template-columns: 1fr; /* Single column on mobile */
-            gap: 20px; /* Reduced gap for mobile */
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
         
         .service-card {
@@ -291,21 +300,21 @@
         }
         
         .service-card:hover {
-            transform: translateY(-5px); /* Reduced transform for mobile */
+            transform: translateY(-5px);
         }
         
         .service-img {
-            height: 180px; /* Reduced height for mobile */
+            height: 180px;
             background-color: var(--primary-color);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 2.5rem; /* Smaller icon for mobile */
+            font-size: 2.5rem;
         }
         
         .service-content {
-            padding: 15px; /* Reduced padding for mobile */
+            padding: 15px;
         }
         
         .service-content h3 {
@@ -322,7 +331,7 @@
             background: white;
             border-radius: 5px;
             margin-bottom: 10px;
-            flex-wrap: wrap; /* Allow wrapping on small screens */
+            flex-wrap: wrap;
         }
         
         .schedule-item > div:first-child {
@@ -334,8 +343,8 @@
         /* Events & Media */
         .event-grid, .media-grid {
             display: grid;
-            grid-template-columns: 1fr; /* Single column on mobile */
-            gap: 20px; /* Reduced gap for mobile */
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
         
         .event-card, .media-card {
@@ -345,7 +354,7 @@
         }
         
         .event-image, .media-video {
-            height: 200px; /* Reduced height for mobile */
+            height: 200px;
             background-color: var(--primary-color);
             display: flex;
             align-items: center;
@@ -375,20 +384,20 @@
         }
         
         .event-content, .media-content {
-            padding: 15px; /* Reduced padding for mobile */
+            padding: 15px;
         }
         
         /* Footer */
         footer {
             background: var(--dark-color);
             color: white;
-            padding: 40px 0 20px; /* Reduced padding for mobile */
+            padding: 40px 0 20px;
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: 1fr; /* Single column on mobile */
-            gap: 30px; /* Reduced gap for mobile */
+            grid-template-columns: 1fr;
+            gap: 30px;
             margin-bottom: 30px;
         }
         
@@ -413,7 +422,7 @@
         
         .footer-section a {
             color: #ddd;
-            min-height: 30px; /* Minimum touch target */
+            min-height: 30px;
             display: flex;
             align-items: center;
         }
@@ -424,7 +433,7 @@
         
         .social-icons {
             display: flex;
-            gap: 12px; /* Reduced gap for mobile */
+            gap: 12px;
             margin-top: 15px;
         }
         
@@ -438,7 +447,7 @@
             border-radius: 50%;
             color: white;
             transition: all 0.3s;
-            min-width: 44px; /* Minimum touch target */
+            min-width: 44px;
             min-height: 44px;
         }
         
@@ -457,20 +466,20 @@
         
         /* Page Content Styles */
         .page-section {
-            padding: 50px 0; /* Reduced padding for mobile */
+            padding: 50px 0;
             background: white;
-            min-height: auto; /* Remove fixed height for mobile */
+            min-height: auto;
         }
         
         /* Form Styles */
         .contact-form {
             background: var(--light-color);
-            padding: 20px; /* Reduced padding for mobile */
+            padding: 20px;
             border-radius: 10px;
         }
         
         .form-group {
-            margin-bottom: 15px; /* Reduced margin for mobile */
+            margin-bottom: 15px;
         }
         
         .form-group label {
@@ -481,14 +490,14 @@
         
         .form-control {
             width: 100%;
-            padding: 12px; /* Increased padding for touch */
+            padding: 12px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 16px; /* Prevent zoom on iOS */
+            font-size: 16px;
         }
         
         textarea.form-control {
-            min-height: 120px; /* Reduced height for mobile */
+            min-height: 120px;
         }
         
         .form-message {
@@ -526,7 +535,7 @@
             justify-content: center;
             margin-right: 15px;
             color: white;
-            flex-shrink: 0; /* Prevent icon from shrinking */
+            flex-shrink: 0;
         }
         
         .contact-details {
@@ -535,7 +544,7 @@
         
         /* Map */
         .map-container {
-            height: 300px; /* Reduced height for mobile */
+            height: 300px;
             margin-top: 30px;
         }
         
@@ -549,7 +558,7 @@
         /* Responsive Styles */
         @media (min-width: 576px) {
             html {
-                font-size: 15px; /* Slightly larger base font for tablets */
+                font-size: 15px;
             }
             
             .hero h1 {
@@ -563,15 +572,15 @@
         
         @media (min-width: 768px) {
             html {
-                font-size: 16px; /* Normal base font for larger screens */
+                font-size: 16px;
             }
             
             section {
-                padding: 60px 0; /* Restore padding for larger screens */
+                padding: 60px 0;
             }
             
             .about-content {
-                flex-direction: row; /* Side by side on larger screens */
+                flex-direction: row;
                 gap: 40px;
             }
             
@@ -591,7 +600,7 @@
             }
             
             .page-section {
-                padding: 80px 0; /* Restore padding for larger screens */
+                padding: 80px 0;
             }
             
             .contact-form {
@@ -599,14 +608,13 @@
             }
             
             .hero {
-                padding: 100px 0; /* Restore padding for larger screens */
+                padding: 100px 0;
             }
             
             .hero h1 {
                 font-size: 3rem;
             }
             
-            /* Show desktop nav, hide hamburger */
             .nav-menu {
                 position: static;
                 flex-direction: row;
@@ -628,7 +636,7 @@
         @media (max-width: 767px) {
             .nav-menu {
                 position: fixed;
-                top: 74px; /* Adjusted based on header height */
+                top: 74px;
                 left: -100%;
                 background: white;
                 width: 100%;
@@ -661,7 +669,6 @@
                 display: flex;
             }
             
-            /* Improve schedule display on mobile */
             .schedule-item {
                 flex-direction: column;
             }
@@ -692,10 +699,10 @@
                 <div class="logo-text">Christ Apostolic Ministries</div>
             </div>
             
-            <div class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-times" style="display: none;"></i>
-            </div>
+            </button>
             
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home">Home</a></li>
@@ -732,8 +739,7 @@
                 </div>
                 <div class="about-image">
                     <div class="about-image-placeholder">
-                        <img src="aboutus.jpg" />
-
+                        <img src="aboutus.jpg" alt="About Us" />
                     </div>
                 </div>
             </div>
@@ -747,7 +753,7 @@
             <div class="about-content">
                 <div class="about-image">
                     <div class="our-mission">
-                        <img src="ourmission.jpg"/>
+                        <img src="ourmission.jpg" alt="Our Mission" />
                     </div>
                 </div>
                 <div class="about-text">
@@ -756,7 +762,7 @@
                     
                     <h3>Mission Statement</h3>
                     <p>Our mission is threefold:</p>
-                    <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <ul>
                         <li>To worship God in spirit and truth</li>
                         <li>To make disciples of all nations, beginning in Lahore</li>
                         <li>To serve our community with compassion and practical help</li>
@@ -764,7 +770,7 @@
                     
                     <h3>Core Values</h3>
                     <p>We are committed to:</p>
-                    <ul style="margin-left: 20px;">
+                    <ul>
                         <li>Biblical authority in all matters of faith and practice</li>
                         <li>Prayer as the foundation of all ministry</li>
                         <li>Excellence in everything we do for God</li>
@@ -861,12 +867,12 @@
                 
                 <div class="event-grid">
                     <div class="event-card">
-                        <div class="event-card">
-                        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fposts%2Fpfbid02JJcYF4UmaKZU7GwgVKB65mEqy71bYgXizfV4aEUCUdxeV2Br63X6mwjtuz1hYirPl&show_text=false&width=500" width="350" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                        <div class="event-image">
+                            <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Friaz.yousaf.9883%2Fposts%2Fpfbid02JJcYF4UmaKZU7GwgVKB65mEqy71bYgXizfV4aEUCUdxeV2Br63X6mwjtuz1hYirPl&show_text=false&width=500" width="100%" height="200" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                         </div>
                         <div class="event-content">
                             <h4>Monthly Women's Meeting</h4>
-                            <p><strong>Date:</strong> Septemper 5, 2025</p>
+                            <p><strong>Date:</strong> September 5, 2025</p>
                             <p><strong>Time:</strong> 6:00 PM - 9:00 PM</p>
                             <p><strong>Speaker:</strong> Evangelist Rukhsana Iqbal</p>
                             <p><strong>Location:</strong> E98/2 St# 7 Mian Mir Colony, Lahore</p>
@@ -1045,6 +1051,9 @@
                 <div>
                     <h3 style="color: var(--primary-color); margin-bottom: 20px;">Send Us a Message</h3>
                     <form id="contact-form" class="contact-form">
+                        <input type="hidden" name="access_key" value="d63f6e4f-de9d-4562-bee4-9eaa7a373638">
+                        <input type="checkbox" name="botcheck" style="display: none;">
+                        
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" id="name" name="name" class="form-control" required>
@@ -1088,10 +1097,10 @@
                     <h3>Christ Apostolic Ministries</h3>
                     <p>A place of worship, fellowship, and spiritual growth in Lahore, Pakistan.</p>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/riaz.yousaf.9883"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/dr_bhatti_1979"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/+923238493968"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/riaz.yousaf.9883" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/dr_bhatti_1979" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/+923238493968" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
@@ -1116,203 +1125,173 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; </p>
+                <p>&copy; 2025 Christ Apostolic Ministries. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-
-<!-- 1. YOUR FIXED HTML STRUCTURE -->
-<form id="contact-form">
-    <!-- MANDATORY: Put your actual Web3Forms access key inside the value quotes below -->
-    <input type="hidden" name="access_key" value="d63f6e4f-de9d-4562-bee4-9eaa7a373638">
-
-    <!-- Anti-bot Spam Honeypot Protection -->
-    <input type="checkbox" name="botcheck" style="display: none;">
-
-    <div class="form-group">
-        <label for="name">Your Name</label>
-        <!-- Added id="name" so JavaScript can find it -->
-        <input type="text" id="name" name="name" required>
-    </div>
-
-    <div class="form-group">
-        <label for="email">Email Address</label>
-        <!-- Added id="email" so JavaScript can find it -->
-        <input type="email" id="email" name="email" required>
-    </div>
-
-    <div class="form-group">
-        <label for="subject">Subject</label>
-        <!-- Added id="subject" so JavaScript can find it -->
-        <input type="text" id="subject" name="subject" required>
-    </div>
-
-    <div class="form-group">
-        <label for="message">Message</label>
-        <!-- Added id="message" so JavaScript can find it -->
-        <textarea id="message" name="message" required></textarea>
-    </div>
-
-    <button type="submit">Send Message</button>
-    
-    <!-- Status message container for errors or success notifications -->
-    <div id="form-message" class="form-message" style="display: none;"></div>
-</form>
-
- 
-<script>
+    <script>
         // Mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
             const hamburger = document.getElementById('hamburger');
             const navMenu = document.getElementById('nav-menu');
             const overlay = document.getElementById('overlay');
 
-            // Toggle mobile menu
-            hamburger.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-                if (overlay) {
-                    overlay.classList.toggle('active');
-                }
-                hamburger.classList.toggle('active');
-                
-                // Prevent body from scrolling when menu is open
-                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
-            });
-
-            // Handle link clicks with smooth scrolling and close menu
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    } else {
-                        console.warn(`Element with ID ${targetId} not found`);
-                    }
-
-                    navMenu.classList.remove('active');
+            if (hamburger && navMenu) {
+                // Toggle mobile menu
+                hamburger.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
                     if (overlay) {
-                        overlay.classList.remove('active');
+                        overlay.classList.toggle('active');
                     }
-                    hamburger.classList.remove('active');
-                    document.body.style.overflow = ''; // Re-enable scrolling
+                    hamburger.classList.toggle('active');
+                    
+                    // Prevent body from scrolling when menu is open
+                    document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
                 });
-            });
-                                  </script>
-                                  
-<!-- 2. YOUR CORRECTED JAVASCRIPT CODE -->
-<script>
-    // Navigation controllers (Safe-guards against missing menu items)
-    let overlay = document.querySelector('.overlay');
-    let navMenu = document.querySelector('.nav-menu');
-    let hamburger = document.querySelector('.hamburger');
 
-    if (overlay && navMenu && hamburger) {
-        overlay.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            hamburger.classList.remove('active');
-            document.body.style.overflow = '';
+                // Handle link clicks with smooth scrolling and close menu
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+
+                        navMenu.classList.remove('active');
+                        if (overlay) {
+                            overlay.classList.remove('active');
+                        }
+                        hamburger.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+
+            // Navigation controllers (Safe-guards against missing menu items)
+            if (overlay && navMenu && hamburger) {
+                overlay.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    overlay.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            // Fixed Contact Form Processor
+            const contactForm = document.getElementById('contact-form');
+            const formMessage = document.getElementById('form-message');
+            const submitBtn = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    // Clear any old alerts instantly
+                    if (formMessage) {
+                        formMessage.style.display = 'none';
+                    }
+
+                    // Gather inputs via matching IDs
+                    const nameEl = document.getElementById('name');
+                    const emailEl = document.getElementById('email');
+                    const subjectEl = document.getElementById('subject');
+                    const messageEl = document.getElementById('message');
+
+                    const name = nameEl ? nameEl.value.trim() : '';
+                    const email = emailEl ? emailEl.value.trim() : '';
+                    const subject = subjectEl ? subjectEl.value.trim() : '';
+                    const message = messageEl ? messageEl.value.trim() : '';
+
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    // Simple validation rules
+                    if (!name || !email || !subject || !message) {
+                        if (formMessage) {
+                            formMessage.textContent = 'Please fill out all fields.';
+                            formMessage.className = 'form-message error';
+                            formMessage.style.display = 'block';
+                        }
+                        return;
+                    }
+
+                    if (!emailRegex.test(email)) {
+                        if (formMessage) {
+                            formMessage.textContent = 'Please enter a valid email address.';
+                            formMessage.className = 'form-message error';
+                            formMessage.style.display = 'block';
+                        }
+                        return;
+                    }
+
+                    // Visual feedback status: Loading...
+                    if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Sending...';
+                    }
+                    if (formMessage) {
+                        formMessage.textContent = 'Sending message...';
+                        formMessage.className = 'form-message';
+                        formMessage.style.display = 'block';
+                    }
+
+                    // Map and bundle form payload strings together
+                    const formData = new FormData(contactForm);
+                    const object = Object.fromEntries(formData);
+                    const json = JSON.stringify(object);
+
+                    // Fetch delivery process targeting Web3Forms API
+                    fetch('https://web3forms.com', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                    .then(async (response) => {
+                        let jsonResponse = await response.json();
+                        
+                        if (response.status === 200) {
+                            if (formMessage) {
+                                formMessage.textContent = 'Thank you for your message! We will get back to you soon.';
+                                formMessage.className = 'form-message success';
+                            }
+                            contactForm.reset();
+                        } else {
+                            if (formMessage) {
+                                formMessage.textContent = jsonResponse.message || 'Something went wrong. Please try again.';
+                                formMessage.className = 'form-message error';
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error('API Connection Error:', error);
+                        if (formMessage) {
+                            formMessage.textContent = 'Network error. Please try again later.';
+                            formMessage.className = 'form-message error';
+                        }
+                    })
+                    .then(() => {
+                        // Re-enable interactions when fetch finishes
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Send Message';
+                        }
+
+                        // Fade/hide notification window block after 5 seconds
+                        if (formMessage) {
+                            setTimeout(() => {
+                                formMessage.style.display = 'none';
+                            }, 5000);
+                        }
+                    });
+                });
+            }
         });
-    }
-
-    // Fixed Contact Form Processor
-    const contactForm = document.getElementById('contact-form');
-    const formMessage = document.getElementById('form-message');
-    const submitBtn = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Lock the browser from full-page reloading
-
-            // Clear any old alerts instantly
-            formMessage.style.display = 'none';
-
-            // Gather inputs via matching IDs
-            const nameEl = document.getElementById('name');
-            const emailEl = document.getElementById('email');
-            const subjectEl = document.getElementById('subject');
-            const messageEl = document.getElementById('message');
-
-            const name = nameEl ? nameEl.value.trim() : '';
-            const email = emailEl ? emailEl.value.trim() : '';
-            const subject = subjectEl ? subjectEl.value.trim() : '';
-            const message = messageEl ? messageEl.value.trim() : '';
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            // Simple validation rules
-            if (!name || !email || !subject || !message) {
-                formMessage.textContent = 'Please fill out all fields.';
-                formMessage.className = 'form-message error';
-                formMessage.style.display = 'block';
-                return;
-            }
-
-            if (!emailRegex.test(email)) {
-                formMessage.textContent = 'Please enter a valid email address.';
-                formMessage.className = 'form-message error';
-                formMessage.style.display = 'block';
-                return;
-            }
-
-            // Visual feedback status: Loading...
-            if (submitBtn) {
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Sending...';
-            }
-            formMessage.textContent = 'Sending message...';
-            formMessage.className = 'form-message';
-            formMessage.style.display = 'block';
-
-            // Map and bundle form payload strings together
-            const formData = new FormData(contactForm);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-
-            // Fetch delivery process targeting Web3Forms API
-            fetch('https://web3forms.com', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                let jsonResponse = await response.json();
-                
-                if (response.status === 200) {
-                    formMessage.textContent = 'Thank you for your message! We will get back to you soon.';
-                    formMessage.className = 'form-message success';
-                    contactForm.reset(); // Wipe all values clear
-                } else {
-                    formMessage.textContent = jsonResponse.message || 'Something went wrong. Please try again.';
-                    formMessage.className = 'form-message error';
-                }
-            })
-            .catch(error => {
-                console.error('API Connection Error:', error);
-                formMessage.textContent = 'Network error. Please try again later.';
-                formMessage.className = 'form-message error';
-            })
-            .then(() => {
-                // Re-enable interactions when fetch finishes
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Send Message';
-                }
-
-                // Fade/hide notification window block after 5 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            });
-        });
-    }
-</script>
+    </script>
 </body>
 </html>
