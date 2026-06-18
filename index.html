@@ -1331,5 +1331,85 @@
   gtag('config', 'G-P2B9D0RB68');
 </script>
 
+<!-- ================================================================= -->
+<!-- COOKIE CONSENT BANNER & GOOGLE ANALYTICS INTEGRATION             -->
+<!-- ================================================================= -->
+
+<!-- 1. The Dormant Analytics Script (Doesn't track until activated) -->
+<script id="google-analytics-script" type="text/plain" async src="https://www.googletagmanager.com/gtag/js?id=G-P2B9D0RB68"></script>
+
+<!-- 2. The Visual Banner Overlay -->
+<div id="cookie-consent-banner" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 600px; background-color: #ffffff; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-radius: 8px; padding: 20px; z-index: 10000; border: 1px solid #eef2f5;">
+    <div style="display: flex; flex-direction: column; gap: 15px;">
+        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 0.95rem; color: #333333; line-height: 1.5;">
+            🍪 <strong>We value your privacy.</strong> Christ Apostolic Ministries uses basic cookies to optimize your donation experience and analyze site traffic. Read our <a href="/privacy" style="color: #0056b3; text-decoration: underline;">Privacy Policy</a> to learn more.
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px; font-family: 'Segoe UI', sans-serif;">
+            <button id="btn-reject-cookies" style="background: none; border: 1px solid #cccccc; color: #666666; padding: 8px 18px; border-radius: 20px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">Decline</button>
+            <button id="btn-accept-cookies" style="background-color: #0056b3; border: none; color: white; padding: 8px 22px; border-radius: 20px; font-weight: 600; cursor: pointer; font-size: 0.85rem;">Accept All</button>
+        </div>
+    </div>
+</div>
+
+<!-- 3. The Logic Controller -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const banner = document.getElementById("cookie-consent-banner");
+        const acceptBtn = document.getElementById("btn-accept-cookies");
+        const rejectBtn = document.getElementById("btn-reject-cookies");
+        
+        // Target your specific Google ID
+        const targetGaId = 'G-P2B9D0RB68'; 
+
+        // Check if user has already made a choice in this browser
+        const consentChoice = localStorage.getItem("cam_cookie_consent");
+
+        if (!consentChoice) {
+            // Show banner if they haven't visited before
+            banner.style.display = "block";
+        } else if (consentChoice === "accepted") {
+            enableTrackers();
+        } else if (consentChoice === "declined") {
+            disableTrackers();
+        }
+
+        // Handle "Accept All" click
+        acceptBtn.addEventListener("click", function () {
+            localStorage.setItem("cam_cookie_consent", "accepted");
+            banner.style.display = "none";
+            enableTrackers();
+        });
+
+        // Handle "Decline" click
+        rejectBtn.addEventListener("click", function () {
+            localStorage.setItem("cam_cookie_consent", "declined");
+            banner.style.display = "none";
+            disableTrackers();
+        });
+
+        function enableTrackers() {
+            console.log("Cookies accepted. Initializing Google Analytics...");
+            
+            const gaScript = document.getElementById("google-analytics-script");
+            if (gaScript && gaScript.getAttribute("type") === "text/plain") {
+                gaScript.setAttribute("type", "text/javascript");
+                const src = gaScript.getAttribute("src");
+                gaScript.removeAttribute("src");
+                gaScript.setAttribute("src", src);
+            }
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', targetGaId);
+        }
+
+        function disableTrackers() {
+            console.log("Cookies declined. Forcing Google Analytics Opt-Out.");
+            window['ga-disable-' + targetGaId] = true;
+        }
+    });
+</script>
+    
 </body>
 </html>
