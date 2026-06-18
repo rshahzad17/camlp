@@ -1161,67 +1161,149 @@
                     document.body.style.overflow = ''; // Re-enable scrolling
                 });
             });
+    </script>
 
-            // Close menu when clicking on overlay
-            if (overlay) {
-                overlay.addEventListener('click', function() {
-                    navMenu.classList.remove('active');
-                    overlay.classList.remove('active');
-                    hamburger.classList.remove('active');
-                    document.body.style.overflow = ''; // Re-enable scrolling
-                });
+       
+            
+     
+    <!-- 1. THE COMPLETE HTML FORM -->
+    <form id="contact-form">
+        <!-- MANDATORY: Replace the value below with your actual Web3Forms access key -->
+        <input type="hidden" name="access_key" value="d63f6e4f-de9d-4562-bee4-9eaa7a373638">
+
+        <!-- Optional Spam Honeypot (Keeps automated bots from submitting your form) -->
+        <input type="checkbox" name="botcheck" style="display: none;">
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <button type="submit">Send Message</button>
+        
+        <!-- Status container where success/error messages appear -->
+        <div id="form-message" class="form-message"></div>
+    </form>
+
+    <!-- 2. THE JAVASCRIPT BLOCK -->
+    <script>
+        // Dummy variables to prevent errors if you haven't declared your navigation variables yet
+        let overlay = document.querySelector('.overlay');
+        let navMenu = document.querySelector('.nav-menu');
+        let hamburger = document.querySelector('.hamburger');
+
+        // Close menu when clicking on overlay (Your original setup)
+        if (overlay) {
+            overlay.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                hamburger.classList.remove('active');
+                document.body.style.overflow = ''; // Re-enable scrolling
+            });
+        }
+
+        // Contact form submission with Web3Forms Integration
+        const contactForm = document.getElementById('contact-form');
+        const formMessage = document.getElementById('form-message');
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default full-page reload
+
+            // Get form values
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Simple email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Validate inputs locally before sending data
+            if (!name || !email || !subject || !message) {
+                formMessage.textContent = 'Please fill out all fields.';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+                return;
             }
 
-            // Contact form submission
-            const contactForm = document.getElementById('contact-form');
-            const formMessage = document.getElementById('form-message');
-
-            contactForm.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent default form submission
-
-                // Get form values
-                const name = document.getElementById('name').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const subject = document.getElementById('subject').value.trim();
-                const message = document.getElementById('message').value.trim();
-
-                // Simple email validation regex
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-                // Validate inputs
-                if (!name || !email || !subject || !message) {
-                    formMessage.textContent = 'Please fill out all fields.';
-                    formMessage.className = 'form-message error';
-                    formMessage.style.display = 'block';
-                    return;
-                }
-
-                if (!emailRegex.test(email)) {
-                    formMessage.textContent = 'Please enter a valid email address.';
-                    formMessage.className = 'form-message error';
-                    formMessage.style.display = 'block';
-                    return;
-                }
-
-                // Simulate form submission (e.g., log to console)
-                console.log('Form submitted:', { name, email, subject, message });
-
-                // Show success message
-                formMessage.textContent = 'Thank you for your message! We will get back to you soon.';
-                formMessage.className = 'form-message success';
+            if (!emailRegex.test(email)) {
+                formMessage.textContent = 'Please enter a valid email address.';
+                formMessage.className = 'form-message error';
                 formMessage.style.display = 'block';
+                return;
+            }
 
-                // Reset form
-                contactForm.reset();
+            // Visual UI feedback: Disable button and show sending status
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+            }
+            formMessage.textContent = 'Sending message...';
+            formMessage.className = 'form-message';
+            formMessage.style.display = 'block';
 
-                // Hide message after 5 seconds
+            // Gather all form input data mapped to their 'name' attributes
+            const formData = new FormData(contactForm);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            // Fetch request processing data in background
+            fetch('https://web3forms.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let jsonResponse = await response.json();
+                
+                if (response.status === 200) {
+                    // Show confirmation success message
+                    formMessage.textContent = 'Thank you for your message! We will get back to you soon.';
+                    formMessage.className = 'form-message success';
+                    contactForm.reset(); // Wipe inputs clean
+                } else {
+                    // Web3Forms API error returned 
+                    formMessage.textContent = jsonResponse.message || 'Something went wrong. Please try again.';
+                    formMessage.className = 'form-message error';
+                }
+            })
+            .catch(error => {
+                // Unexpected network drops / offline error handling
+                console.error('Error:', error);
+                formMessage.textContent = 'Network error. Please try again later.';
+                formMessage.className = 'form-message error';
+            })
+            .then(() => {
+                // Re-enable interactive elements when action completes
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                }
+
+                // Auto-clear notification dialog bubble out after 5 seconds
                 setTimeout(() => {
                     formMessage.style.display = 'none';
                 }, 5000);
             });
-
-            // Debug: Log initialization
-            console.log('Navigation menu and contact form initialized');
         });
     </script>
 </body>
