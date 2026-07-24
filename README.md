@@ -1,1 +1,1 @@
-simple static html and css based webpage
+Simple static html, css, javascript based webpage with external form submission.
